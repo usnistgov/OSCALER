@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>OSCAL Virtual Escape Room Alert</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1, height=device-height"></meta>
+		<link rel="stylesheet" href="../css/OSCALER.css">
+        <!-- link rel="stylesheet" href="css/nist-combined.css">
+            <script src="js/jquery-1.9.0.min.js" type="text/javascript" defer="defer"></script>
+            <script src="js/nist-header-footer.js" type="text/javascript" defer="defer"></script -->
+        <!-- getting 404 from jquery.min.map due to deprecated syntax in jquery 1.9.0 when including the recommended systax below:
+            <link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+            <script src="https://pages.nist.gov/nist-header-footer/js/jquery-1.9.0.min.js" type="text/javascript" defer="defer"></script>
+            <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
+         --> 
+	<script async type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NIST&subagency=github&pua=UA-66610693-1&yt=true&exts=ppsx,pps,f90,sch,rtf,wrl,txz,m1v,xlsm,msi,xsd,f,tif,eps,mpg,xml,pl,xlt,c"></script>
+    </head>
+    <body id="body">
+        <script type="text/javascript">
+               window.onload = setInterval(clock,1000);
+               function clock()
+               {
+                   var d = new Date();
+                   var date = d.getDate();
+                   var year = d.getFullYear();
+                   var month = d.getMonth();
+                   var day = d.getDay();
+                   var monthArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November","December"];
+                   month = monthArr[month];
+                   var weekArr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                   weekDay = weekArr[day];
+                   var mins = d.getMinutes().toString().padStart(2,'0');
+                   var secs = d.getSeconds().toString().padStart(2,'0');
+                   document.getElementById("date").innerHTML=weekDay+", "+date+" "+month+", "+(year+10)+"; "+d.getHours()+":"+mins+":"+secs+" EST";  
+               } 
+
+               function setMyVolume() {
+                  var myvolume = document.getElementById("alarm");
+                  console.log('current volume before adjusting it');
+                  myvolume = 0.8;
+                }
+               
+               setInterval(function() {
+                    var div = document.querySelector("#counter");
+                    if (div !== null) 
+                    {
+                      var count = div.textContent * 1 - 1;
+                      div.textContent = count;                 
+                      if (count <= 0) {
+                            window.location.replace("./Escape-Room-Lobby.html");
+                        }
+                    }                  
+                }, 1000);
+
+                setTimeout(function() { 
+                  document.getElementById("msgdelay").play(); 
+                  console.log('your audio is started just now');
+                }, 10000)
+       </script> 
+       <!-- OSCAL_Virtual_Escape_Room_Framework.html -->
+	    <div id="mya" style="width:100%; height: 12vh; text-align: center; ">
+			<span style="font-size: 4vh; color: rgb(155, 222, 244);" >
+				OSCAL VIRTUAL ESCAPE ROOM</span><br>
+			<span style="font-size: 3vh; color: rgb(155, 222, 244);" >
+				<a href="./Escape-Room-Lobby.html">Click here to start playing.</a>
+			</span>
+		</div>
+        <!-- <div id="div";> -->
+		<div style="width:100%; height: 70vh;
+			background-image: url('../images/command-room-txt.png'); 
+			background-repeat: no-repeat; 
+            background-size:cover;
+			background-position: center;">
+            <span style="font-size: 2vh; color: rgb(255, 255, 255); text-align: center;" >
+             <br><br><br>
+           
+             You have <span style="color:rgb(250, 82, 3);">30 minutes</span> to stop it!
+            </span>
+		</div>
+		<div style="width:100%; height: 5vh; text-align: center;"> 
+            <h2 style="font-size: 3vh; color: rgb(155, 222, 244);" >
+                Today is <span id="date"></span>
+            </h2>
+        </div>
+        <!-- Browser needs to be configured under privacy settings to allow the URL to play -->
+        <!-- audio id="alarm" allow="autoplay" autoplay="TRUE" name="media"><source src="./audios/siren_low.mp3" type="audio/mpeg"></audio --> 
+        <audio id="msgdelay" allow="autoplay" autoplay="TRUE" name="media" ><source src="./audios/announcement_a.mp3" type="audio/mpeg"></audio>
+        <!-- audio allow="autoplay" controls="console" autoplay="TRUE" name="media"><source src="./audios/announcement_a.m4a" type="audio/mpeg"></audio -->
+        
+        <!-- redirect to Countdown when audio ends. The numeric value needs adjustment with the audio length -->
+        <div id="counter" style="font-size:16px; color:rgb(55, 55, 55); text-align: center;">10047</div>
+    </body>
+</html>
+       
