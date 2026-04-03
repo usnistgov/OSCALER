@@ -1,0 +1,43 @@
+Operation: Open Sentry
+Location: United States Cybersecurity & Infrastructure AI Agency (CIA2), Central Command.
+Current Time: 1300 EDT, April 16, 2026.
+Clearance: Top Secret // SCI // OSCAL PROGRAM ONLY.
+
+You step into the quiet, cool air of the high-security command center. It’s your standard afternoon shift monitoring the nation’s critical infrastructure. You check your terminal - a sophisticated dashboard built using NIST’s Open Security Controls Assessment Language (OSCAL).
+The OSCALized DNA of the entire defense infrastructure is displayed in front of you. The infrastructure's digital twin is actively updating the DNA information with all the patches and immunizations. 
+
+T-Minus 60 Minutes: The Anomalies Begin. The silence is pierced unexpectedly by a loud alarm!
+It starts on your main central screen: OSCAL Escape Room. You see it and feel a small burst of amusement, wondering which of your colleagues is trying to mess with you. But the smile vanishes when you notice that the standard dashboard has shifted.
+Your regular monitoring screens are blinking a jarring orange-red, labeled "SYSTEM BREACHES" and "DATA LEAKAGE." An alert overlay appears over your map:
+
+ALERT: CYBER ATTACK IN PROGRESS. OSCAL DATA TAMPERED!
+
+This isn't a joke. It's a crisis. Someone - an "Attacker" - has breached the core.
+
+T-Minus 45 Minutes: The Denial of Service Strategy
+Your training kicks in. You dive into the logs on your workstation. The attacker's goal isn't immediate destruction; it’s far subtler and more malicious. They have hacked the central OSCAL artifacts repository.
+They are modifying the machine-readable security information, the DNA of the infrastructure adding false million of components and security configurations that must be immediately assessed. The required frequency and depth of millions of automated security assessments across the entire federal network is growing exponentially overpowering the capabilities.
+A standard control meant to check a firewall once an hour is being rewritten via OSCAL to be checked every single second. A simple validation process is being amplified into a monstrous computational demand.
+The strategy is clear: Denial of Service (DoS) through huge monitoring workload. By drowning every server, database, and cloud instance in an avalanche of self-inflicted, excessive monitoring tasks, the attacker will cause a complete collapse of all critical government and public infrastructure.
+The impact is already cascading. On your dashboard, you see the alerts flashing faster:
+
+INTRUSION DETECTION, CRITICAL VULNERABILITIES, TRAFFIC SPIKE.
+
+Your system is choking on its own defenses.
+
+T-Minus 30 Minutes: YOU HAVE 30 MINUTES TO REVERT THE CHANGES
+You locate the infected catalog. The dashboard highlights the specific technical evidence on your terminal with a red lock and a failure message:
+
+OSCAL INFORMATION MALICIOUSLY MODIFIED!
+$original_oscal --> OSCAL_MALICIOUS_v3
+broken integrity check FAILURE
+
+The attacker has manually forced the modification of vital variable definitions. They have bypassed the normal validation protocols, but the OSCAL system's own "integrity check" has failed, flagging the discrepancy. This flag is the only reason you know the disaster is imminent.
+The system cannot "undo" the change itself. It needs a manual override. It needs you.
+
+The Mission
+The command center door locks behind you. You are sealed in with only a limited window of power. To stop the cascading DoS attack and save the grid, you must:
+Decode the OSCAL Problems: The attacker has hidden the correct, original code snippets and configuration keys behind a series of logical and physical puzzles.
+Repair the Files: You must find and input the exact correct, original OSCAL variables ($original_oscal) for a series of critical security controls.
+Restore the Integrity Check: Once all the controls are corrected, you must input the final code that will re-validate the original, un-broken integrity check, effectively wiping the OSCAL_MALICIOUS data from the system.
+You are the only person who can stop this. Your system is failing. The workload is climbing to 99%. Your time starts... now.
