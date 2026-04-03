@@ -66,11 +66,23 @@
 			</span>
 		</div>
         <!-- <div id="div";> -->
-		<div style="width:100%; height: 70vh;
-			background-image: url('../images/command-room-txt.png'); 
-			background-repeat: no-repeat; 
-            background-size:cover;
-			background-position: center;">
+        <style>
+            .command-room-txt-png {
+                width:100%; 
+                height: 70vh;
+                background-image: url('../images/command-room-txt.png'); 
+                background-repeat: no-repeat; 
+                background-size:cover;
+                background-position: center;
+            }
+
+            @media (min-width: 900px) {
+                .command-room-txt-png {
+                    background-size: contain;
+                }
+            }
+        </style>
+		<div class="command-room-txt-png">
             <span style="font-size: 2vh; color: rgb(255, 255, 255); text-align: center;" >
              <br><br><br>
            
