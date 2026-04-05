@@ -1,188 +1,213 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>NLP Virtual Escape Room</title>
-    <meta charset="UTF-8"></meta>
-    <meta name="viewport" content="width=device-width, initial-scale=1, height=device-height"></meta>
-    <script async type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NIST&subagency=github&pua=UA-66610693-1&yt=true&exts=ppsx,pps,f90,sch,rtf,wrl,txz,m1v,xlsm,msi,xsd,f,tif,eps,mpg,xml,pl,xlt,c"></script>
+    <title>OSCAL Virtual Escape Room (OSCALER)</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, height=device-height" />
+    <script async type="text/javascript" id="_fed_an_ua_tag"
+      src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NIST&subagency=github&pua=UA-66610693-1&yt=true&exts=ppsx,pps,f90,sch,rtf,wrl,txz,m1v,xlsm,msi,xsd,f,tif,eps,mpg,xml,pl,xlt,c">
+    </script>
     <style>
-      * { box-sizing: border-box; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+      }
       
-      body { font-family: Arial, Helvetica, sans-serif; }
-                
-      /* Style the header */
-      /* background-color: #666; */
-      header { padding: 5px; text-align: left; font-size: 70px; height: auto; color: white; }
-      
-      /* Create two columns/boxes that floats next to each other */
-      /* only for demonstration, should be removed */
-      nav { float: left; width: 30%; height: 300px; background: #ccc; padding: 20px; }
-      
-      /* Style the list inside the menu */
-      nav ul { list-style-type: none; padding: 0; }
-      
-      /* only for demonstration, should be removed */
-      article { float: left; padding: 20px; width: 70%; background-color: #f1f1f1; height: 300px; }
-      
-      /* Clear floats after the columns */
-      section:after { content: ""; display: table; clear: both; }
-      
-      /* Style the footer */
-      footer { background-color: #777; padding: 10px; text-align: center; color: white; }
-      
-      /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
-      @media (max-width: 600px) {
-        nav, article {
+      /* ── Sticky top bar ── */
+      #topbar {
+        flex-shrink: 0;
           width: 100%;
-          height: auto;
-        }
+        background-color: black;
+        text-align: center;
+        padding: 4px 0;
+        z-index: 100;
       }
       
-      #body { background-color: black; display: flex; flex-wrap: wrap; align-content: flex-end; text-align:center; }
-      
-      #main {display: flex; flex-wrap: wrap; align-content: flex-end; }
-      
-      #div { height: 100%; 
-        background-image: url('images/beacon.jpg'); 
-        background-repeat: no-repeat; 
-        background-size: cover;
-        }
+      #topbar a {
+        color: rgb(248, 90, 46);
+        font-size: clamp(11px, 1.4vw, 16px);
+        text-decoration: none;
+        letter-spacing: 0.04em;
+      }
 
-        p { text-align: center; font-size: 50px; margin-top: 0px; color: white; }
+      #topbar a:hover { text-decoration: underline; }
 
-      /* Luis: to wrap around the class thumbnail, to print the thumbnail within a box of null size */
-      .LBthumb { float:left; width:0px; height:0px; transform:scale(1,1)}
+      /* ── 4×4 grid fills remaining height ── */
+      #grid {
+        flex: 1 1 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 3px;
+        padding: 3px;
+        overflow: hidden;
+      }
 
-      /* Luis 2020/Jul/17: LBglass produces a transparent rectangle that can be wraped with a hyperlink, using <a href ...> */
-      .LBglass { 
-        position:relative; top:0; left:0; display:inline-block; 
-        width:480px; height:250px; margin:20px; 
-        opacity:0.00; background-color:#000000; border:1px; }
+      /* ── Each cell ── */
+      .cell {
+        position: relative;
+        overflow: hidden;
+        background: #111;
+      }
 
-      /* the width and height here are your resultant sizes. */
-      .thumbnail { width:500px; height:270px; float:left; margin:10px; position:relative; }
-
-		  /* the width 1000px and height 560px here are your "unshrunken" sizes.  Important because of the scale variable later. */
-      .thumbnail iframe {
-        position: relative; z-index: 1; 
-			  width: 1777px; height: 1000px;
-        -webkit-transform-origin: 0 0;
-        -moz-transform-origin: 0 0;
+      /* iframe fills the cell at native resolution then scales down */
+      .cell iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1777px;
+        height: 1000px;
         transform-origin: 0 0;
-        -webkit-transform:  scale(0.25, 0.25);   /* Gets the size down to fit into your .thumbnail. */
-        -moz-transform:  scale(0.25, 0.25);      /* Gets the size down to fit into your .thumbnail. */
-        transform:  scale(0.25, 0.25);           /* Gets the size down to fit into your .thumbnail. */
-        overflow: scroll;
+        border: none;
+        pointer-events: none;  /* glass overlay handles clicks */
       }
 
-      .thumbnail a { position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
-
-      #mya a:link { color:#0404fc; background-color:#000000; }
-      #mya a:visited { color:#fc0000; background-color:#000000; }
-      #mya a:hover { color:#ffffff; background-color:#000000; }
-      #mya a:active { color:#03f840; background-color:#00ff00; }
+      /* transparent clickable overlay */
+      .cell a.glass {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        display: block;
+      }
 		</style>
-  </head>
-  <body id="body">
-      <script >
+</head>
+  <body>
+
+    <div id="topbar">
+      <a style="font-size: 2vh; color:rgb(240, 90, 50)"href="./Escape-Room-Cover-Story.html">CLICK HERE TO RESTART THE GAME</a>
+    </div>
+
+    <div id="grid">
+
+      <!-- Cell 0: countdown timer -->
+      <div class="cell" id="cell-0">
+        <iframe src="./Module-00-countdown.html"></iframe>
+        <!-- no link overlay on the timer -->
+      </div>
+
+      <!-- Cell 1 -->
+      <div class="cell">
+        <iframe src="./Module-01.html"></iframe>
+        <a class="glass" href="./Module-01.html" target="_blank"></a>
+      </div>
+
+      <!-- Cell 2 -->
+      <div class="cell">
+        <iframe src="./Module-02.html"></iframe>
+        <a class="glass" href="./Module-02.html" target="_blank"></a>
+      </div>
+
+      <!-- Cell 3 -->
+      <div class="cell">
+        <iframe src="./Module-03.html"></iframe>
+        <a class="glass" href="./Module-03.html" target="_blank"></a>
+      </div>
+
+      <!-- Cell 4 -->
+      <div class="cell">
+        <iframe src="./Module-04.html"></iframe>
+        <a class="glass" href="./Module-04.html" target="_blank"></a>
+      </div>
+
+      <!-- Cell 5 -->
+      <div class="cell">
+        <iframe src="./Module-05.html"></iframe>
+        <a class="glass" href="./Module-05.html" target="_blank"></a>
+      </div>
+
+      <!-- Cell 6 -->
+      <div class="cell">
+        <iframe src="./Module-06.html"></iframe>
+        <a class="glass" href="./Module-06.html" target="_blank"></a>
+      </div>
+
+      <!-- Cell 7 -->
+      <div class="cell">
+        <iframe src="./Module-07.html"></iframe>
+        <a class="glass" href="./Module-07.html" target="_blank"></a>
+      </div>
+
+      <!-- Cell 8 -->
+      <div class="cell">
+        <iframe src="./Module-08.html"></iframe>
+        <a class="glass" href="./Module-08.html" target="_blank"></a>
+      </div>
+
+      <!-- Cell 9 -->
+      <div class="cell">
+        <iframe src="./Module-09.html"></iframe>
+        <a class="glass" href="./Module-09.html" target="_blank"></a>
+      </div>
+
+      <!-- Cell 10 -->
+      <div class="cell">
+        <iframe src="./Module-10.html"></iframe>
+        <a class="glass" href="./Module-10.html" target="_blank"></a>
+      </div>
+
+      <!-- Cell 11 -->
+      <div class="cell">
+        <iframe src="./Module-11.html"></iframe>
+        <a class="glass" href="./Module-11.html" target="_blank"></a>
+      </div>
+
+      <!-- Cell 12 -->
+      <div class="cell">
+        <iframe src="./Module-12.html"></iframe>
+        <a class="glass" href="./Module-12.html" target="_blank"></a>
+      </div>
+
+      <!-- Cell 13 -->
+      <div class="cell">
+        <iframe src="./Module-13.html"></iframe>
+        <a class="glass" href="./Module-13.html" target="_blank"></a>
+      </div>
+
+      <!-- Cell 14 -->
+      <div class="cell">
+        <iframe src="./Module-14.html"></iframe>
+        <a class="glass" href="./Module-14.html" target="_blank"></a>
+      </div>
+
+      <!-- Cell 15 -->
+      <div class="cell">
+        <iframe src="./Module-15.html"></iframe>
+        <a class="glass" href="./Module-15.html" target="_blank"></a>
+      </div>
+
+    </div>
+
+    <script>
+      function scaleIframes() {
+        document.querySelectorAll('.cell').forEach(function(cell) {
+          var iframe = cell.querySelector('iframe');
+          if (!iframe) return;
+          var scaleX = cell.offsetWidth  / 1777;
+          var scaleY = cell.offsetHeight / 1000;
+          var scale  = Math.min(scaleX, scaleY);
+          iframe.style.transform = 'scale(' + scale + ')';
+        });
+      }
+
+      scaleIframes();
+      window.addEventListener('resize', scaleIframes);
+
+      /* countdown redirect */
               setInterval(function() {
-                  var div = document.querySelector("#counter");
-                  if (div !== null) 
-                  {
+        var div = document.querySelector('#counter');
+        if (div !== null) {
                     var count = div.textContent * 1 - 1;
                     div.textContent = count;                 
-                    if (count <= 0) {
-                          window.location.replace("./CountDown.html");
-                      }
+          if (count <= 0) window.location.replace('./CountDown.html');
                   }
               }, 1000);
       </script> 
     
-    <div id="mya" style="width:100%; text-align:center; font-size: 3vh;">
-      <span><a href="./Escape-Room-Cover-Story.html">Click here to restart the game.</a>
-      </br>
-      </span>
-      <!-- <h2 style="color:#00ff00;">To enter any room of the game, click at the bottom of the window under the green bar.</h2> -->
-    </div >
-
-<!-- ===== ROW 1 ===== -->
-      
-  <!-- Time counter -->
-  <span style="margin:0px"><div class="thumbnail"><iframe src="./Module-00-countdown.html"></iframe></div></span>
-
-  <!-- Riddle ?? -->
-  <span><div class="LBthumb"> <div class="thumbnail"><iframe src="./Module-01.html"></iframe></div></div>
-  <!--  "https://docs.google.com/forms/d/e/1FAIpQLSe6Ao25PTIZABDk2FEo1MqpFUkW1-F5slN4nlyCQkrMa1vL2A/viewform"  -->
-  <a href="./Module-01.html" target="_blank"><div class="LBglass"></div></a></span>
-
-  <!-- Riddle ??  -->
-  <span><div class="LBthumb"><div class="thumbnail"><iframe src="./Module-02.html"></iframe></div></div>
-  <a href="./Module-02.html" target="_blank"><div class="LBglass"></div></a></span>
-
-
-  <!-- Riddle ??  -->
-  <span><div class="LBthumb"> <div class="thumbnail"><iframe src="./Module-03.html"></iframe></div></div>
-  <a href="./Module-03.html" target="_blank"><div class="LBglass"></div></a></span>
-
-<!-- ===== ROW 2 ===== -->
-
-  <!-- Riddle ??  -->
-  <span><div class="LBthumb"> <div class="thumbnail"><iframe src="./Module-04.html"></iframe></div></div>
-  <a href="./Module-04.html" target="_blank"><div class="LBglass"></div></a></span>
-
-  <!-- Riddle ??  -->
-  <span><div class="LBthumb"> <div class="thumbnail"><iframe src="./Module-05.html"></iframe></div></div>
-  <a href="./Module-05.html" target="_blank"><div class="LBglass"></div></a></span>
-
-  <!-- Riddle ??  -->
-  <span><div class="LBthumb"> <div class="thumbnail"><iframe src="./Module-06.html"></iframe></div></div>
-  <a href="./Module-06.html" target="_blank"><div class="LBglass"></div></a></span>
-
-  <!-- Riddle ??  -->
-  <span><div class="LBthumb"> <div class="thumbnail"><iframe src="./Module-07.html"></iframe></div></div>
-  <a href="./Module-07.html" target="_blank"><div class="LBglass"></div></a></span>
-
-<!-- ===== ROW 3 ===== -->  
-  
-  <!-- Riddle ?? -->
-  <span><div class="LBthumb"> <div class="thumbnail"><iframe src="./Module-08.html"></iframe></div></div>
-  <a href="./Module-08.html" target="_blank"><div class="LBglass"></div></a></span>
-
-  <!-- Riddle ??  -->
-  <span><div class="LBthumb"> <div class="thumbnail"><iframe src="./Module-09.html"></iframe></div></div>
-  <a href="./Module-09.html" target="_blank"><div class="LBglass"></div></a></span>
-
-  <!-- Riddle ??  -->
-  <span><div class="LBthumb"> <div class="thumbnail"><iframe src="./Module-10.html"></iframe></div></div>
-  <a href="./Module-10.html" target="_blank"><div class="LBglass"></div></a></span>
-
-  <!-- Riddle ??  -->
-  <span><div class="LBthumb"> <div class="thumbnail"><iframe src="./Module-11.html"></iframe></div></div>
-  <a href="./Module-11.html" target="_blank"><div class="LBglass"></div></a></span>
-
-<!-- ===== ROW 4 ===== -->
-
-  <!-- Riddle ?? -->
-  <span><div class="LBthumb"> <div class="thumbnail"><iframe src="./Module-12.html"></iframe></div></div>
-  <a href="./Module-12.html" target="_blank"><div class="LBglass"></div></a></span>
-
-
-  <!-- Riddle ??  -->
-  <span><div class="LBthumb"> <div class="thumbnail"><iframe src="./Module-13.html"></iframe></div></div>
-  <a href="./Module-13.html" target="_blank"><div class="LBglass"></div></a></span>
-
-  <!-- Riddle ??  -->
-  <span><div class="LBthumb"> <div class="thumbnail"><iframe src="./Module-14.html"></iframe></div></div>
-  <a href="./Module-14.html" target="_blank"><div class="LBglass"></div></a></span>
-
-  <!-- Riddle ??  -->
-  <span><div class="LBthumb"> <div class="thumbnail"><iframe src="./Module-15.html"></iframe></div></div>
-  <a href="./Module-15.html" target="_blank"><div class="LBglass"></div></a></span>
-
-   <!-- Riddle ?? 
-  <span><div class="LBthumb"><div class="thumbnail"><iframe src="https://cdnapisec.kaltura.com/html5/html5lib/v2.85/mwEmbedFrame.php/p/684682/uiconf_id/31013851/entry_id/1_ec6ezo2t?wid=_684682&iframeembed=true&entry_id=1_ec6ezo2t?iframeembed=true&entry_id=1_ec6ezo2t"></iframe></div></div>
-    <a href="https://cdnapisec.kaltura.com/html5/html5lib/v2.85/mwEmbedFrame.php/p/684682/uiconf_id/31013851/entry_id/1_ec6ezo2t?wid=_684682&iframeembed=true&entry_id=1_ec6ezo2t?iframeembed=true&entry_id=1_ec6ezo2t" target="_blank"><div class="LBglass"></div></a></span> 
-  -->
   </body>
 </html>
-       
