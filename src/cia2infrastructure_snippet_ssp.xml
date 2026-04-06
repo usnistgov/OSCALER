@@ -247,7 +247,7 @@
             <value>security functions (deployed in hardware) for authorized access are defined;</value>
         </set-parameter>
         <set-parameter param-id="ac-06.01_odp.03">
-            <value>security functions (deployed in soware) for authorized access are defined;</value>
+            <value>security functions (deployed in software) for authorized access are defined;</value>
         </set-parameter>
         <set-parameter param-id="ac-06.01_odp.04">
             <value>security functions (deployed in firmware) for authorized access are defined;</value>
