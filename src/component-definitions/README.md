@@ -1,5 +1,7 @@
 # Component Definitions
 
+DISCLAIMER: The following component definitions are not officially endorsed by NIST. They are provided courtesy of AWS, and are intended to be used for game purposes.
+
 OSCAL model type: `component-definition`
 
 This directory contains 230 OSCAL Component Definitions files in JSON format.
