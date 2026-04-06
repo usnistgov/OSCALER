@@ -5,23 +5,8 @@
         <meta charset="UTF-8"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1, height=device-height"></meta>
         <link rel="stylesheet" href="../css/OSCALER-room.css">
-
         <script async type="text/javascript" id="_fed_an_ua_tag"
             src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NIST&subagency=github&pua=UA-66610693-1&yt=true&exts=ppsx,pps,f90,sch,rtf,wrl,txz,m1v,xlsm,msi,xsd,f,tif,eps,mpg,xml,pl,xlt,c">
-        </script>
-
-        <script>
-            function LogIn() {
-                var psw_value = document.getElementById('psw').value.trim();
-                console.log(`Ghost component count entered: ${psw_value}`);
-
-                if (psw_value === "116") {
-                    window.location.href = "./Module-10.01.html";
-                    return;
-                } else {
-                    alert("Incorrect. Please try again.");
-                }
-            }
         </script>
     </head>
     <body id="body" style="vertical-align: baseline;">
@@ -41,32 +26,33 @@
 
         <span style="width:100%; text-align:center; max-width:100vw;">
             <h1 style="color:white; font-size:2.5vw; line-height:0px; font-family:sans-serif;">
-                Infrastructure's DNA Is Hacked!
+                Inheritance Integrity Check: FAILED!
             </h1>
+
             <div style="position:relative; display:inline-block;">
-                <img src="../images/dna-cdef.png" alt="module-10" style="height:80vh; display:block;">
+                <img src="../images/inheritance.png" alt="module-10" style="height:80vh; display:block;">
+
+                <!-- Existing: top 40%, center third — links to GitHub -->
                 <a href="https://github.com/usnistgov/OSCALER/tree/main/src/component-definitions"
                    target="_blank"
-                   style="position:absolute; top:0%; left:33%; width:34%; height:40%; display:block; cursor:pointer; background-color:rgba(255,255,255,0);"
+                   style="position:absolute; top:0%; left:33%; width:34%; height:40%;
+                          display:block; cursor:pointer; background-color:rgba(255,255,255,0);"
                    title="View component definitions on GitHub">
+                </a>
+
+                <!-- New: middle 25% height, right side — focuses Lobby tab -->
+                <a href="javascript:void(0);"
+                   onclick="window.opener && window.opener.focus();"
+                   style="position:absolute; top:25%; left:75%; width:25%; height:25%;
+                          display:block; cursor:pointer; background-color:rgba(255,255,255,0);"
+                   title="Return focus to the Lobby">
                 </a>
             </div>
         </span>
 
-        <span style="display:block; width:100%; text-align:center; max-width:100vw; margin-top:1vh;">
-            <form style="font-size:1.5vw; color:rgb(255, 119, 0);" onsubmit="LogIn(); return false;">
-                <label for="psw">Enter here the number of ghost components you identified, then click the 'Submit' button. </label>
-                <input type="text" id="psw" name="psw" required
-                       style="font-size:1.0vw"
-                       onkeydown="if(event.key==='Enter'){ LogIn(); return false; }">
-                <input type="button" value=" Submit " onClick="LogIn()" style="font-size:1.0vw">
-                <br/>
-            </form>
-        </span>
-
         <br/><br/><br/>
         <div style="width:100%; height:4vh; background:rgb(248, 249, 250); font-size:3vh; color:rgb(182, 32, 6); text-align:center;">
-            <a href="javascript:window.open('','_self').close();">CLOSE THIS TAB AND RETURN TO THE LOBBY</a>
+            <a href="javascript:window.open('','_self').close();">REMEMBER THE INSTRUCTIONS BEFORE YOU CLOSE THIS TAB AND RETURN TO THE LOBBY TO RESOLVE THIS ISSUE</a>
         </div>
 
     </body>
