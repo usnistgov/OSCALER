@@ -2,33 +2,33 @@
 <assessment-results uuid="8da1dfe1-4aec-48e2-bacb-431ad61486c2"
     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
     <metadata>
-        <title>IFA SYSTEM1234 Assessment Results</title>
-        <last-modified>2025-07-06T14:10:00.000000-00:00</last-modified>
+        <title>CIA2 Assessment Results</title>
+        <last-modified>2026-04-06T14:10:00.000000-00:00</last-modified>
         <version>1.0.0</version>
         <oscal-version>1.1.3</oscal-version>
         <revisions>
             <revision>
-                <title>IFA GoodRead Continuous Monitoring Assessment Results June 2023</title>
-                <last-modified>2024-02-01T13:57:28.355446-04:00</last-modified>
-                <version>202306-002</version>
+                <title>CIA2 Continuous Monitoring Assessment Results February 2026</title>
+                <last-modified>2026-02-01T13:57:28.355446-04:00</last-modified>
+                <version>2026-002</version>
                 <oscal-version>1.1.2</oscal-version>
                 <link rel="version-history" href="#ec0dad37-54e0-40fd-a925-6d0bdea94c0d"/>
                 <remarks>
-                    <p>This OSCAL version of the IFA Assessment Results was importing an nonexisting Assessment Plan.</p>
+                    <p>This OSCAL version of the CIA2 Assessment Results was importing an nonexisting Assessment Plan.</p>
                 </remarks>
             </revision>
         </revisions>
         <role id="assessor">
-            <title>IFA Security Controls Assessor</title>
+            <title>CIA2 Security Controls Assessor</title>
         </role>
         <party uuid="e7730080-71ce-4b20-bec4-84f33136fd58" type="person">
             <name>Amy Assessor</name>
             <member-of-organization>3a675986-b4ff-4030-b178-e953c2e55d64</member-of-organization>
         </party>
         <party uuid="3a675986-b4ff-4030-b178-e953c2e55d64" type="organization">
-            <name>Important Federal Agency</name>
-            <short-name>IFA</short-name>
-            <link href="https://www.ifa.gov" rel="website" />
+               <name>Cybersecurity and Infrastructure AI Agency (CIA2)</name>
+            <short-name>CIA2</short-name>
+            <link href="https://www.cia2.gov" rel="website" />
         </party>
         <responsible-party role-id="assessor">
             <party-uuid>e7730080-71ce-4b20-bec4-84f33136fd58</party-uuid>
@@ -37,7 +37,7 @@
             <p>In this version of the artifact, the content was updated to OSCAL v1.1.3 and the system name was changed. Imported Assessment Plan was corrected. Other enhancements were implemented.</p>
         </remarks>
     </metadata>
-    <import-ap href="../../ap/xml/ifa_assessment-plan.xml" />
+    <import-ap href="./cia2infrastructure_snippet_sap.xml" />
     <local-definitions>
         <activity uuid="cf5d53fe-6043-4c68-9ed6-6b258909febf">
             <title>Test System Elements for Least Privilege Design and Implementation</title>
@@ -52,7 +52,7 @@
                 <title>Configure Cross-Account IAM Role Trust for SYSTEM1234 and Assessor AwesomeCloud
                     Accounts</title>
                 <description>
-                    <p>The IFA SYSTEM1234 system engineer will coordinate with the assessor's engineering
+                    <p>The CIA2 system engineer will coordinate with the assessor's engineering
                         support staff to configure an IAM role trust. A service account for
                         automation with its own role with the assessor's AwesomeCloud account can
                         assume the role for read-only assessor operations within the SYSTEM1234
@@ -116,7 +116,7 @@
         </activity>
     </local-definitions>
     <result uuid="a1d20136-37e0-42aa-9834-4e9d8c36d798">
-        <title>IFA SYSTEM1234 Continuous Monitoring Results June 2023</title>
+        <title>CIA2 Continuous Monitoring Results June 2023</title>
         <description>
             <p>Automated monthly continuous monitoring of the SYSTEM1234 information system's cloud
                 infrastructure recorded observations below. Additionally, contingent upon the
@@ -189,7 +189,7 @@
             <title>SYSTEM1234 System Engineers Have Over-Privileged Access to Cloud Infrastructure
                 Account</title>
             <description>
-                <p>A user in the SYSTEM1234 cloud environment with the privileges of a system engineer
+                <p>A user in the CIA2 cloud environment with the privileges of a system engineer
                     can exceed the intended privileges for their related business function. They can
                     delete all historical audit records and remove important security monitoring
                     functions for the IFA Security Operations Center staff.</p>
@@ -201,8 +201,8 @@
                     causing significant harm with no forensic evidence to recover the system.
                     Regardless of the extent and duration of a potential incident, such a
                     configuration greatly increases the risk of an insider threat if there were
-                    likely to a potential insider threat in the SYSTEM1234 Product Team.</p>
-                <p>If such an insider threat existed and acted with this misconfigruation, the
+                    likely to a potential insider threat in the CIA2 Product Team.</p>
+                <p>If such an insider threat existed and acted with this misconfiguration, the
                     resulting event could cause significant financial and reputational risk to IFA's
                     Administrator, executive staff, and the agency overall.</p>
             </statement>
@@ -235,8 +235,8 @@
     </result>
     <back-matter>
         <resource uuid="ec0dad37-54e0-40fd-a925-6d0bdea94c0d">
-            <title>IFA GoodRead Continuous Monitoring Assessment Results June 2023</title>
-            <rlink href="https://github.com/usnistgov/oscal-content/archive/refs/tags/v1.3.0.zip"/>
+            <title>CIA2 Continuous Monitoring Assessment Results February 2026</title>
+            <rlink href="https://github.com/usnistgov/OSCALER/blob/main/src/cia2infrastructure_snippet__sar.xml"/>
         </resource>
     </back-matter>
 </assessment-results>
