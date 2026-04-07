@@ -1,12 +1,12 @@
-# Component Definitions
+# Component Definitions Inventory
 
 DISCLAIMER: The following component definitions are not officially endorsed by NIST. They are provided courtesy of AWS, and are intended to be used for game purposes.
 
 OSCAL model type: `component-definition`
 
-This directory contains 230 OSCAL Component Definitions files in JSON format.
+This directory contains OSCAL Component Definitions files in JSON format with a strict naming convention. Valid files for the CIA2 infrastructure should be named as "[service-name].oscal.json"
 
-## Summary
+## Inventory
 
 | Index | File | Title | Components | Control Implementations | Version | OSCAL Version | Last Modified |
 |---|---|---|---|---|---|---|---|
@@ -240,4 +240,3 @@ This directory contains 230 OSCAL Component Definitions files in JSON format.
 | 228 | [workmail.json](workmail.json) | Amazon WorkMail | 2 | 0 | 0.2.0 | 1.2.1 | 2036-04-16 |
 | 229 | [workspaces.json](workspaces.json) | Amazon WorkSpaces | 6 | 3 | 0.2.1 | 1.2.1 | 2036-04-16 |
 | 230 | [xray.json](xray.json) | AWS X-Ray | 1 | 0 | 0.2.0 | 1.2.1 | 2036-04-16 |
-Generated on 2036-04-16.
