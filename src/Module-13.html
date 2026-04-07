@@ -1,36 +1,152 @@
-<!DOCTYPE html>
+<!<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>OSCAL Virtual Escape Room Module #1</title>
         <meta charset="UTF-8"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1, height=device-height"></meta>
-		<link rel="stylesheet" href="../css/OSCALER-room.css">
-	<script async type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NIST&subagency=github&pua=UA-66610693-1&yt=true&exts=ppsx,pps,f90,sch,rtf,wrl,txz,m1v,xlsm,msi,xsd,f,tif,eps,mpg,xml,pl,xlt,c">
-	</script>
-    </head>
-    <body id="body"; style="vertical-align: baseline;">
+        <link rel="stylesheet" href="../css/OSCALER-room.css">
+        <script async type="text/javascript" id="_fed_an_ua_tag"
+            src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NIST&subagency=github&pua=UA-66610693-1&yt=true&exts=ppsx,pps,f90,sch,rtf,wrl,txz,m1v,xlsm,msi,xsd,f,tif,eps,mpg,xml,pl,xlt,c">
+        </script>
+
         <script>
-               setInterval(function() {
-                    var div = document.querySelector("#counter");
-                    if (div !== null) 
-                    {
-                      var count = div.textContent * 1 - 1;
-                      div.textContent = count;                 
-                      if (count <= 0) {
-                            window.location.replace("./CountDown.html");
-                        }
+            function LogIn() {
+                var v11 = document.getElementById('f11').value.trim().toLowerCase();
+                var v12 = document.getElementById('f12').value.trim().toLowerCase();
+                var v21 = document.getElementById('f21').value.trim().toLowerCase();
+                var v22 = document.getElementById('f22').value.trim().toLowerCase();
+
+                var correct =
+                    v11 === "inherited"           &&
+                    v12 === "satisfied"           &&
+                    v21 === "provided"            &&
+                    v22 === "responsibilities";
+
+                if (correct) {
+                    window.location.href = "./Module-03.html";
+                } else {
+                    var msg = "One or more answers are incorrect. Check:\n";
+                    if (v11 !== "inherited")        msg += "  • Leveraging / Left: not quite\n";
+                    if (v12 !== "satisfied")        msg += "  • Leveraging / Right: not quite\n";
+                    if (v21 !== "provided")         msg += "  • Leveraged / Left: not quite\n";
+                    if (v22 !== "responsibilities") msg += "  • Leveraged / Right: not quite\n";
+                    alert(msg);
+                }
+            }
+        </script>
+
+        <style>
+            /* Wrapper centers the form contents on the page */
+            .form-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                margin: 1.5vh auto 0 auto;
+            }
+
+            .answer-table {
+                border-collapse: separate;
+                border-spacing: 10px;
+                font-family: sans-serif;
+            }
+            .answer-table th {
+                color: rgb(249, 248, 247);
+                font-size: 1.4vw;
+                text-align: left;
+                padding-right: 12px;
+                white-space: nowrap;
+            }
+            .answer-table td {
+                padding: 4px;
+            }
+            .answer-table input[type="text"] {
+                font-size: 1.1vw;
+                padding: 4px 8px;
+                border: 2px solid rgb(167, 243, 117);
+                border-radius: 4px;
+                background: black;
+                color: rgb(167, 243, 117);
+                width: 14vw;
+            }
+
+            /* Button sits to the right of the table, vertically centered */
+            .submit-btn {
+                font-size: 1.2vw;
+                padding: 10px 28px;
+                background: rgb(167, 243, 117);
+                color: rgb(0, 0, 0);
+                border: 4px solid rgb(100, 147, 71);
+                border-radius: 4px;
+                cursor: pointer;
+                white-space: nowrap;
+                align-self: center;
+            }
+            .submit-btn:hover {
+                background: rgb(100, 147, 71);
+                border: 4px solid rgb(167, 243, 117);
+                color: black;
+            }
+        </style>
+    </head>
+    <body id="body" style="vertical-align: baseline;">
+
+        <script>
+            setInterval(function() {
+                var div = document.querySelector("#counter");
+                if (div !== null) {
+                    var count = div.textContent * 1 - 1;
+                    div.textContent = count;
+                    if (count <= 0) {
+                        window.location.replace("./CountDown.html");
                     }
-                }, 1000);
-       </script>     
-    <span style="width:100%; text-align:center; max-width:100vw;">
-      <h1 style="color:white ; font-size:4vw; line-height: 0px; font-family: sans-serif;">Module 01 Title </h1> 
-			<img src="../images/placeholder.png" alt="module-01" style="height:80vh" >
-		</span>
-    <br/>
-      <div style="width:100%; height:4vh; background:rgb(248, 249, 250); font-size: 3vh; color:rgb(182, 32, 6); text-align: center;">
-        <!--- a href="./OSCALER_Virtual_Escape_Room_Framework.html">BACK</a --->
-        <a href="javascript:window.open('','_self').close();">CLOSE THIS PAGE AND RETURN TO THE LOBBY</a>
+                }
+            }, 1000);
+        </script>
+
+        <!-- Image with hot zone overlay -->
+        <span style="width:100%; text-align:center; max-width:100vw; display:block;">
+            <h1 style="color:white; font-size:2.5vw; line-height:0px; font-family:sans-serif;">
+                System Security Plan (SSP)
+            </h1>
+
+            <div style="position:relative; display:inline-block;">
+                <img src="../images/ssp-diagram-outline.png" alt="module-13" style="height:70vh; display:block;">
+
+                <!-- Hot zone: right 50% of image width, middle 50% of image height -->
+                <a href="https://pages.nist.gov/OSCAL-Reference/models/v1.2.1/system-security-plan/xml-outline/"
+                   target="_blank"
+                   style="position:absolute; top:25%; left:50%; width:50%; height:50%;
+                          display:block; cursor:pointer; background-color:rgba(255,255,255,0);"
+                   title="View SSP XML outline on OSCAL Reference">
+                </a>
+            </div>
+        </span>
+
+        <!-- Table + button side by side, centered -->
+    <form onsubmit="LogIn(); return false;" style="width:100%;">
+      <div class="form-wrapper" style="display:flex; justify-content:center; align-items:center; gap:20px; width:100%;">
+        <table class="answer-table">
+            <tr>
+                <th>Leveraging assemblies:</th>
+                <td><input type="text" id="f11" placeholder="implemented, accepted..."     autocomplete="off"></td>
+                <td><input type="text" id="f12" placeholder="completes the accepted offer..." autocomplete="off"></td>
+            </tr>
+            <tr>
+                <th>Leveraged assemblies:</th>
+                <td><input type="text" id="f21" placeholder="implemented, offered..."        autocomplete="off"></td>
+                <td><input type="text" id="f22" placeholder="completes the offer, must do..." autocomplete="off"></td>
+            </tr>
+        </table>
+
+        <button type="submit" class="submit-btn">Submit</button>
       </div>
+    </form>
+
+        <br/>
+        <div style="width:100%; height:4vh; background:rgb(248, 249, 250); font-size:3vh; color:rgb(182, 32, 6); text-align:center;">
+            <a href="javascript:window.open('','_self').close();">CLOSE THIS PAGE AND RETURN TO THE LOBBY</a>
+        </div>
+
     </body>
 </html>
-       
