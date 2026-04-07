@@ -5,6 +5,7 @@ DISCLAIMER: The following component definitions are not officially endorsed by N
 OSCAL model type: `component-definition`
 
 This directory contains OSCAL Component Definitions files in JSON format with a strict naming convention. Valid files for the CIA2 infrastructure should be named as "[service-name].oscal.json"
+Any updates to the infrastructure will trigger a new UUID and updated date to the relevant component definitions, which will trigger a SSP update and a new assessment.
 
 ## Inventory
 
