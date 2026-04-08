@@ -17,7 +17,7 @@
 
                 var ok1 = v1 === "related-observation"  || v1 === "related-observations";
                 var ok2 = v2 === "related-finding"      || v2 === "related-findings";
-                var ok3 = v3 === "related-risk"         || v3 === "related-risks";
+                var ok3 = v3 === "associated-risk"      || v3 === "associated-risks";
 
                 if (ok1 && ok2 && ok3) {
                     window.location.href = "./Module-07.html";
@@ -112,7 +112,13 @@
                 <!-- Hot zone: right 50% of image width, middle 50% of image height -->
                 <a href="https://raw.githubusercontent.com/usnistgov/OSCALER/refs/heads/main/src/cia2infrastructure_snippet_poam.xml"
                    target="_blank"
-                   style="position:absolute; top:25%; left:50%; width:50%; height:50%;
+                   style="position:absolute; top:20%; left:0%; width:50%; height:40%;
+                          display:block; cursor:pointer; background-color:rgba(255,255,255,0);"
+                   title="View POA&M XML snippet source">
+                </a>
+                <a href="https://pages.nist.gov/OSCAL-Reference/models/v1.2.1/plan-of-action-and-milestones/xml-reference/#/plan-of-action-and-milestones/poam-item"
+                   target="_blank"
+                   style="position:absolute; top:60%; left:0%; width:50%; height:20%;
                           display:block; cursor:pointer; background-color:rgba(255,255,255,0);"
                    title="View POA&M XML snippet source">
                 </a>
@@ -129,11 +135,6 @@
                 <td><input type="text" id="f2" placeholder="link to finding ..." autocomplete="off"></td>
                 <td><input type="text" id="f3" placeholder="link to risk ..." autocomplete="off"></td>
             </tr>
-            <!-- tr>
-                <th>Leveraged assemblies:</th>
-                <td><input type="text" id="f21" placeholder="implemented, offered..."        autocomplete="off"></td>
-                <td><input type="text" id="f22" placeholder="completes the offer, must do..." autocomplete="off"></td>
-            </tr -->
         </table>
 
         <button type="submit" class="submit-btn">Submit</button>

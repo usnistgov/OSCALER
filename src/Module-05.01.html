@@ -32,7 +32,7 @@
       var loggedin = false;
       console.log(`Security impact level (CIA objectives) = ${password}; Value = ${psw_value}`);
 
-      if (psw_value == "HHH") {
+      if (psw_value == "H-H-H") {
         loggedin = true;
         window.location = "./Module-10.html";
       }
@@ -47,25 +47,30 @@
     <h1 style="color:white; font-size:2.5vw; line-height: 0px; font-family: sans-serif;">
         TASK: Review CIA Security Objectives
     </h1>
-    <img src="../images/CIA-review.png" alt="module-05" style="height:80vh">
+    <img src="../images/CIA-review.png" alt="module-05" style="height:62vh">
   </span>
 
-  <span style="display: block; width:100%; text-align: center; max-width:100vw; margin-top: 1vh;">
+  <span style="display: block; width:60%; text-align: left; max-width:100vw; margin-top: 1vh; margin-left: 25vw">
     <form style="font-size: 1.5vw; color: rgb(255, 119, 0);">
-      <label for="psw">Enter here the security objectives documented in the SSP, in the format SSS, then click the
-        'Submit' button. </label>
+      IMPORTANT: Open the CIA2's SSP from the Lobby tab (do not close this tab), <br/>
+      (1) save for later the last 4 digits of the SSP's root UUID, and <br/>
+      (2) extract the CIA categorization from the "security-impact-level" assembly.
+      <br/><br/> 
+      <span style="color:white; font-size: 1.5vw; margin-left: -2vw; font-family: sans-serif;">
+        <label for="psw">Input the CIA2's categorization in the C-I-A format: </label>
+      </span>
       <input type="text" id="psw" name="psw" required style="font-size: 1.0vw">
-      <input type="button" value=" Submit " onClick="LogIn()" style="font-size: 1.0vw">
-      <br />
+        <input type="button" value=" Submit " onClick="LogIn()" style="font-size: 1.2vw; padding: 6px 24px;
+          background: rgb(252, 252, 250); color: rgb(0, 0, 0); border: 3px solid rgb(103, 102, 101); border-radius: 3px;
+          cursor: pointer; white-space: nowrap; align-self: center;">
+      <br/><br/>
     </form>
   </span>
 
   <br /><br /><br />
-  <!-- div style="width:100%; height:4vh; background:rgb(248, 249, 250); font-size: 3vh; color:rgb(182, 32, 6); text-align: center;">
-      <a href="javascript:window.open('','_self').close();">CLOSE THIS TAB AND RETURN TO THE LOBBY</a>
-  </div -->
-  <div style="width:100%; height:4vh; background:rgb(248, 249, 250); font-size: 3vh; color:rgb(182, 32, 6); text-align: center;">
-    <a href="javascript:void(0);" onclick="window.opener && window.opener.focus();">GO BACK TO THE LOBBY (THE TAB), FIND THE SSP THEN RETURN HERE TO INPUT THE ANSWER</a>
+
+   <div style="width:100%; height:4vh; background:rgb(248, 249, 250); font-size: 3vh; color:rgb(253, 252, 252); text-align: center;">
+      <a href="javascript:window.open('','_self').close();">CLOSE THIS PAGE AND RETURN TO THE LOBBY</a>
 </div>
 </body>
 
