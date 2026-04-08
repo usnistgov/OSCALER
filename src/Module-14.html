@@ -4,33 +4,94 @@
         <title>OSCAL Virtual Escape Room Module #1</title>
         <meta charset="UTF-8"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1, height=device-height"></meta>
-		<link rel="stylesheet" href="../css/OSCALER-room.css">
-	<script async type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NIST&subagency=github&pua=UA-66610693-1&yt=true&exts=ppsx,pps,f90,sch,rtf,wrl,txz,m1v,xlsm,msi,xsd,f,tif,eps,mpg,xml,pl,xlt,c">
-	</script>
-    </head>
-    <body id="body"; style="vertical-align: baseline;">
+        <link rel="stylesheet" href="../css/OSCALER-room.css">
+        <script async type="text/javascript" id="_fed_an_ua_tag"
+            src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NIST&subagency=github&pua=UA-66610693-1&yt=true&exts=ppsx,pps,f90,sch,rtf,wrl,txz,m1v,xlsm,msi,xsd,f,tif,eps,mpg,xml,pl,xlt,c">
+        </script>
+
         <script>
-               setInterval(function() {
-                    var div = document.querySelector("#counter");
-                    if (div !== null) 
-                    {
-                      var count = div.textContent * 1 - 1;
-                      div.textContent = count;                 
-                      if (count <= 0) {
-                            window.location.replace("./CountDown.html");
-                        }
+            function LogIn() {
+                var answer = document.getElementById('final-key').value.trim();
+
+                if (answer === "0$C@L-6658") {
+                    window.location.href = "./Module-16.html";
+                } else {
+                    alert("Incorrect answer. Please try again.");
+                }
+            }
+        </script>
+
+        <style>
+            .input-row {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                margin: 1.5vh auto;
+                font-family: sans-serif;
+                font-size: 1.4vw;
+                color: rgb(237, 187, 95);
+                width: 100%;
+            }
+            .input-row input[type="text"] {
+                font-size: 1.2vw;
+                padding: 4px 10px;
+                border: 2px solid rgb(237, 187, 95);
+                border-radius: 4px;
+                background: black;
+                color: white;
+                width: 20vw;
+            }
+            .submit-btn {
+                font-size: 1.2vw;
+                padding: 5px 20px;
+                background: black;
+                color: rgb(237, 187, 95);
+                border: 2px solid rgb(237, 187, 95);
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            .submit-btn:hover {
+                background: rgb(237, 187, 95);
+                color: black;
+            }
+        </style>
+    </head>
+    <body id="body" style="vertical-align: baseline;">
+
+        <script>
+            setInterval(function() {
+                var div = document.querySelector("#counter");
+                if (div !== null) {
+                    var count = div.textContent * 1 - 1;
+                    div.textContent = count;
+                    if (count <= 0) {
+                        window.location.replace("./CountDown.html");
                     }
-                }, 1000);
-       </script>     
-    <span style="width:100%; text-align:center; max-width:100vw;">
-      <h1 style="color:white ; font-size:4vw; line-height: 0px; font-family: sans-serif;">Module 01 Title </h1> 
-			<img src="../images/placeholder.png" alt="module-01" style="height:80vh" >
-		</span>
-    <br/>
-      <div style="width:100%; height:4vh; background:rgb(248, 249, 250); font-size: 3vh; color:rgb(182, 32, 6); text-align: center;">
-        <!--- a href="./OSCALER_Virtual_Escape_Room_Framework.html">BACK</a --->
-        <a href="javascript:window.open('','_self').close();">CLOSE THIS PAGE AND RETURN TO THE LOBBY</a>
-      </div>
+                }
+            }, 1000);
+        </script>
+
+        <span style="width:100%; text-align:center; max-width:100vw; display:block;">
+            <h1 style="color:white; font-size:2.5vw; line-height:0px; font-family:sans-serif;">
+                Operation "Open Sentry": Final Recovery Step
+            </h1>
+            <img src="../images/command-room-recovered.png" alt="module-14" style="height:75vh; margin-bottom:2vh;">
+        </span>
+
+        <form onsubmit="LogIn(); return false;" style="width:100%;">
+            <div class="input-row">
+                <label for="final-key">Insert the FINAL KEY: </label>
+                <input type="text" id="final-key" placeholder="FINAL KEY..." autocomplete="off">
+                <span>to recover the CIA2 system and conclude the mission.</span>
+                <button type="submit" class="submit-btn">Submit</button>
+            </div>
+        </form>
+
+        <br/>
+        <div style="width:100%; height:4vh; background:rgb(248, 249, 250); font-size:3vh; color:rgb(182, 32, 6); text-align:center;">
+            <a href="javascript:window.open('','_self').close();">CLOSE THIS TAB AND RETURN TO THE LOBBY</a>
+        </div>
+
     </body>
 </html>
-       
